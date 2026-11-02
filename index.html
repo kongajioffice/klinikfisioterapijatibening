@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b4b83">
+  <meta name="description" content="Klinik Fisioterapi Yayasan Sinar Pelangi. Pelayanan fisioterapi dan rehabilitasi untuk mendukung gerak dan kualitas hidup yang lebih baik.">
+  <title>Klinik Fisioterapi | Yayasan Sinar Pelangi</title>
+  <style>
+    :root {
+      --navy:#103f70; --blue:#1769aa; --sky:#eaf5fc; --teal:#168b83;
+      --ink:#203247; --muted:#64748b; --line:#e3ebf2; --white:#fff;
+      --shadow:0 16px 45px rgba(16,63,112,.10); --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);line-height:1.65;background:#fff}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{width:min(1140px,calc(100% - 40px));margin:auto}
+    .topbar{background:var(--navy);color:#eaf5fc;font-size:13px;padding:8px 0}
+    .topbar .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand img{width:54px;height:54px;object-fit:contain}
+    .brand strong{display:block;color:var(--navy);font-size:15px;line-height:1.25}
+    .brand span{display:block;color:var(--muted);font-size:11px;letter-spacing:.04em}
+    .links{display:flex;align-items:center;gap:25px;font-size:14px;font-weight:650;color:#40546a}
+    .links a:hover{color:var(--blue)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 21px;background:var(--blue);color:#fff;font-weight:750;font-size:14px;cursor:pointer;box-shadow:0 8px 20px rgba(23,105,170,.18);transition:.2s}
+    .btn:hover{transform:translateY(-2px);background:var(--navy)}
+    .btn.light{background:#fff;color:var(--navy);box-shadow:none}
+    .menu-btn{display:none;background:none;border:0;font-size:26px;color:var(--navy)}
+    .hero{background:linear-gradient(115deg,#f0f8fd 0%,#fff 60%,#e9f5fb 100%);padding:66px 0 58px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:48px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:25px;height:2px;background:var(--teal)}
+    h1{font-size:clamp(38px,5vw,58px);line-height:1.08;letter-spacing:-.04em;color:var(--navy);margin:17px 0}
+    .hero p{font-size:17px;color:#52677c;max-width:570px;margin:0 0 26px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-photo{position:relative}
+    .hero-photo img{width:100%;height:430px;object-fit:cover;border-radius:30px;box-shadow:var(--shadow)}
+    .photo-note{position:absolute;left:-20px;bottom:22px;background:#fff;border-radius:16px;padding:13px 18px;box-shadow:var(--shadow);font-size:13px;font-weight:750;color:var(--navy)}
+    .photo-note span{display:block;font-size:11px;color:var(--muted);font-weight:500}
+    section{padding:76px 0}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 38px}
+    .section-head h2{font-size:clamp(28px,3.5vw,40px);line-height:1.2;color:var(--navy);letter-spacing:-.025em;margin:10px 0}
+    .section-head p{color:var(--muted);margin:0}
+    .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .intro-grid img{height:360px;width:100%;object-fit:cover;border-radius:var(--radius)}
+    h2{color:var(--navy)}
+    .intro-copy h2{font-size:34px;line-height:1.2;margin:12px 0}
+    .intro-copy p{color:var(--muted)}
+    .pill-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+    .pill{background:var(--sky);color:var(--navy);padding:8px 13px;border-radius:999px;font-size:12px;font-weight:700}
+    .services{background:#f7fbfe}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .service-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 8px 25px rgba(16,63,112,.045);display:flex;flex-direction:column}
+    .service-card img{width:100%;height:190px;object-fit:cover;background:#edf6fc}
+    .service-body{padding:19px;display:flex;flex-direction:column;flex:1}
+    .service-body h3{margin:0 0 8px;color:var(--navy);font-size:19px;line-height:1.25}
+    .service-body p{margin:0 0 18px;color:var(--muted);font-size:13px;flex:1}
+    .price-row{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:14px}
+    .price{font-size:20px;font-weight:850;color:var(--blue)}
+    .price small{display:block;font-size:10px;font-weight:500;color:var(--muted)}
+    .mini-link{font-size:12px;font-weight:800;color:var(--teal)}
+    .note{text-align:center;color:var(--muted);font-size:12px;margin:22px auto 0;max-width:760px}
+    .facility-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .facility-main img{height:430px}
+    .facility-side{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+    .facility-side img{height:206px}
+    .facility-main img,.facility-side img{width:100%;object-fit:cover;border-radius:18px}
+    .facility-caption{font-size:13px;color:var(--muted);margin:9px 2px 0}
+    .why{background:linear-gradient(135deg,#0e477b,#1769aa);color:#fff}
+    .why .section-head h2,.why .section-head p{color:#fff}
+    .why .eyebrow{color:#bcece4}
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .why-card{padding:22px 18px;border:1px solid rgba(255,255,255,.2);border-radius:18px;background:rgba(255,255,255,.08)}
+    .why-icon{font-size:27px}
+    .why-card h3{font-size:16px;margin:10px 0 6px}
+    .why-card p{font-size:13px;color:#dcecf8;margin:0}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .step{padding:22px;border:1px solid var(--line);border-radius:18px}
+    .step-num{width:36px;height:36px;border-radius:12px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-weight:850}
+    .step h3{font-size:16px;color:var(--navy);margin:13px 0 5px}
+    .step p{font-size:13px;color:var(--muted);margin:0}
+    .cta{padding:0 0 76px}
+    .cta-panel{border-radius:28px;background:#eaf5fc;padding:42px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .cta-panel h2{font-size:30px;line-height:1.2;margin:0 0 8px}
+    .cta-panel p{color:var(--muted);margin:0;max-width:650px}
+    footer{background:#102f50;color:#dbe9f4;padding:45px 0 22px}
+    .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:35px}
+    footer h3{color:#fff;font-size:16px;margin:0 0 12px}
+    footer p,footer a{font-size:13px;color:#c2d2df}
+    .footer-brand{display:flex;gap:12px;align-items:center}
+    .footer-brand img{width:58px;height:58px;object-fit:contain;background:#fff;border-radius:12px;padding:4px}
+    .copyright{border-top:1px solid rgba(255,255,255,.15);margin-top:30px;padding-top:18px;font-size:11px;color:#9fb4c7}
+    .wa-float{position:fixed;right:20px;bottom:20px;z-index:30;border-radius:999px;padding:14px 18px;background:#159b65;color:#fff;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.2);font-size:13px}
+    @media(max-width:850px){
+      .links{display:none;position:absolute;top:78px;left:0;right:0;background:#fff;padding:18px 24px 24px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+      .links.open{display:flex}.menu-btn{display:block}.nav>.btn{display:none}
+      .hero-grid,.intro-grid{grid-template-columns:1fr}.hero{padding:48px 0}.hero-photo img{height:340px}
+      .cards{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:repeat(2,1fr)}.facility-grid{grid-template-columns:1fr}.facility-main img{height:320px}
+      .facility-side{grid-template-columns:1fr 1fr;grid-template-rows:none}.facility-side img{height:190px}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){
+      .container{width:min(100% - 28px,1140px)}.topbar .container{font-size:11px}
+      .brand img{width:45px;height:45px}.brand strong{font-size:13px}
+      h1{font-size:39px}.hero p{font-size:15px}.hero-photo img{height:280px}.photo-note{left:10px}
+      section{padding:56px 0}.cards{grid-template-columns:1fr}.service-card img{height:205px}
+      .why-grid,.steps{grid-template-columns:1fr 1fr}.facility-side{grid-template-columns:1fr}.facility-side img{height:220px}
+      .cta-panel{padding:28px;display:block}.cta-panel .btn{margin-top:18px}
+      .footer-grid{grid-template-columns:1fr}.wa-float{right:12px;bottom:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Pelayanan Fisioterapi & Rehabilitasi</span>
+      <span>Yayasan Sinar Pelangi · Jatibening</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#beranda" aria-label="Klinik Fisioterapi Yayasan Sinar Pelangi">
+        <img src="assets/logo-yayasan-sinar-pelangi.png" alt="Logo Yayasan Sinar Pelangi">
+        <div><strong>KLINIK FISIOTERAPI</strong><span>YAYASAN SINAR PELANGI</span></div>
+      </a>
+      <nav class="links" id="navLinks">
+        <a href="#beranda">Beranda</a><a href="#tentang">Tentang Kami</a><a href="#layanan">Layanan</a><a href="#fasilitas">Fasilitas</a><a href="#kontak">Kontak</a>
+      </nav>
+      <a class="btn" href="#kontak">Buat Janji</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Klinik Fisioterapi Yayasan Sinar Pelangi</span>
+          <h1>Bergerak Lebih Baik,<br>Hidup Lebih Bermakna.</h1>
+          <p>Kami mendampingi Anda dalam upaya mengurangi keluhan, meningkatkan kemampuan gerak, dan menjalani aktivitas sehari-hari dengan lebih baik melalui pelayanan fisioterapi yang profesional dan penuh kepedulian.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#layanan">Lihat Layanan</a>
+            <a class="btn light" href="#kontak">Konsultasi & Pendaftaran</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/area-alat-latihan-2.jpg" alt="Area latihan dan rehabilitasi Klinik Fisioterapi Yayasan Sinar Pelangi">
+          <div class="photo-note">Pelayanan dengan kepedulian<span>Mendukung gerak dan kualitas hidup</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang">
+      <div class="container intro-grid">
+        <img src="assets/gedung-klinik.jpg" alt="Tampak luar Klinik Fisioterapi Yayasan Sinar Pelangi">
+        <div class="intro-copy">
+          <span class="eyebrow">Tentang Kami</span>
+          <h2>Setiap Orang Berhak Bergerak Lebih Baik.</h2>
+          <p>Klinik Fisioterapi Yayasan Sinar Pelangi merupakan bagian dari karya pelayanan kesehatan Yayasan Sinar Pelangi. Kami hadir untuk mendukung masyarakat dalam mengatasi keterbatasan gerak, meningkatkan kemampuan fisik, dan mengembangkan kemandirian.</p>
+          <p>Kami percaya bahwa setiap pasien memiliki kebutuhan yang berbeda. Karena itu, pelayanan diawali dengan penilaian kondisi dan diarahkan sesuai kebutuhan masing-masing pasien.</p>
+          <div class="pill-list"><span class="pill">Pendekatan personal</span><span class="pill">Pelayanan penuh kepedulian</span><span class="pill">Dukungan rehabilitasi</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="layanan">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Layanan Kami</span>
+          <h2>Pilihan Layanan Fisioterapi</h2>
+          <p>Kenali pilihan layanan yang tersedia. Jenis terapi yang sesuai akan ditentukan berdasarkan asesmen dan pertimbangan fisioterapis.</p>
+        </div>
+        <div class="cards">
+          <article class="service-card">
+            <img src="assets/layanan-diatermi.png" alt="Layanan terapi diatermi">
+            <div class="service-body"><h3>Diatermi</h3><p>Terapi panas menggunakan gelombang elektromagnetik untuk membantu mengurangi nyeri dan ketegangan otot serta mendukung sirkulasi darah.</p><div class="price-row"><div class="price">Rp60.000<small>Tarif sesuai daftar layanan</small></div><a class="mini-link wa-link" data-service="Diatermi" href="#">Tanya layanan →</a></div></div>
+          </article>
+          <article class="service-card">
+            <img src="assets/layanan-diatermi-ultrasound.png" alt="Layanan kombinasi diatermi dan ultrasound">
+            <div class="service-body"><h3>Diatermi + Ultrasound</h3><p>Kombinasi terapi panas dan gelombang ultrasonik untuk membantu menangani nyeri dan mendukung pemulihan jaringan.</p><div class="price-row"><div class="price">Rp120.000<small>Tarif sesuai daftar layanan</small></div><a class="mini-link wa-link" data-service="Diatermi + Ultrasound" href="#">Tanya layanan →</a></div></div>
+          </article>
+          <article class="service-card">
+            <img src="assets/layanan-diatermi-tens.png" alt="Layanan Diatermi TENS">
+            <div class="service-body"><h3>Diatermi TENS</h3><p>Terapi stimulasi listrik melalui elektroda untuk membantu mengurangi nyeri dan mendukung relaksasi otot.</p><div class="price-row"><div class="price">Rp100.000<small>Tarif sesuai daftar layanan</small></div><a class="mini-link wa-link" data-service="Diatermi TENS" href="#">Tanya layanan →</a></div></div>
+          </article>
+          <article class="service-card">
+            <img src="assets/layanan-eswt.png" alt="Layanan fisioterapi ESWT">
+            <div class="service-body"><h3>Fisioterapi ESWT</h3><p>Terapi gelombang kejut untuk membantu menangani kondisi nyeri muskuloskeletal tertentu dan mendukung pemulihan jaringan.</p><div class="price-row"><div class="price">Rp200.000<small>Tarif sesuai daftar layanan</small></div><a class="mini-link wa-link" data-service="Fisioterapi ESWT" href="#">Tanya layanan →</a></div></div>
+          </article>
+          <article class="service-card">
+            <img src="assets/layanan-infra-merah.png" alt="Layanan terapi infra merah">
+            <div class="service-body"><h3>Infra Merah (Infrared)</h3><p>Terapi menggunakan sinar infra merah untuk memberikan efek hangat dan membantu mengurangi ketegangan serta nyeri otot.</p><div class="price-row"><div class="price">Rp60.000<small>Tarif sesuai daftar layanan</small></div><a class="mini-link wa-link" data-service="Infra Merah" href="#">Tanya layanan →</a></div></div>
+          </article>
+          <article class="service-card">
+            <img src="assets/layanan-traksi-leher.png" alt="Layanan traksi leher">
+            <div class="service-body"><h3>Traksi Leher</h3><p>Terapi traksi servikal untuk membantu menangani keluhan pada area leher sesuai hasil pemeriksaan dan indikasi.</p><div class="price-row"><div class="price">Rp60.000<small>Tarif sesuai daftar layanan</small></div><a class="mini-link wa-link" data-service="Traksi Leher" href="#">Tanya layanan →</a></div></div>
+          </article>
+        </div>
+        <p class="note">Tarif ditampilkan sebagai informasi awal. Mohon konfirmasi kepada klinik mengenai tarif terkini, durasi, dan ketentuan setiap sesi. Tidak semua jenis terapi sesuai untuk setiap pasien.</p>
+      </div>
+    </section>
+
+    <section id="fasilitas">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Fasilitas Klinik</span>
+          <h2>Ruang untuk Berlatih dan Memulihkan Gerak</h2>
+          <p>Fasilitas latihan dan rehabilitasi untuk mendukung program terapi sesuai kebutuhan pasien.</p>
+        </div>
+        <div class="facility-grid">
+          <div class="facility-main">
+            <img src="assets/area-alat-latihan-1.jpg" alt="Area peralatan latihan rehabilitasi">
+            <p class="facility-caption">Area latihan dengan berbagai peralatan pendukung rehabilitasi.</p>
+          </div>
+          <div class="facility-side">
+            <div><img src="assets/latihan-tangga-dan-jalan.jpg" alt="Fasilitas latihan berjalan dan tangga"><p class="facility-caption">Fasilitas latihan berjalan dan aktivitas fungsional.</p></div>
+            <div><img src="assets/ruang-terapi.jpg" alt="Ruang tindakan fisioterapi"><p class="facility-caption">Ruang tindakan fisioterapi.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Semangat Pelayanan</span>
+          <h2>Profesional dalam Pelayanan, Peduli kepada Sesama.</h2>
+          <p>Kami ingin setiap pasien merasa dihargai dan didampingi dalam proses meningkatkan kemampuan geraknya.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card"><div class="why-icon">♡</div><h3>Penuh Kepedulian</h3><p>Menghargai kebutuhan, kenyamanan, dan martabat setiap pasien.</p></div>
+          <div class="why-card"><div class="why-icon">✚</div><h3>Berorientasi pada Pasien</h3><p>Pelayanan mempertimbangkan kondisi dan kebutuhan masing-masing individu.</p></div>
+          <div class="why-card"><div class="why-icon">↗</div><h3>Mendukung Kemandirian</h3><p>Mendukung kemampuan gerak dan aktivitas sehari-hari.</p></div>
+          <div class="why-card"><div class="why-icon">☀</div><h3>Berlandaskan Kemanusiaan</h3><p>Bagian dari semangat pelayanan Yayasan Sinar Pelangi.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Alur Pelayanan</span>
+          <h2>Mulai dengan Langkah yang Tepat</h2>
+          <p>Hubungi klinik untuk mendapatkan informasi dan arahan sebelum memulai terapi.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-num">01</div><h3>Hubungi Kami</h3><p>Tanyakan informasi layanan dan jadwal kunjungan.</p></div>
+          <div class="step"><div class="step-num">02</div><h3>Asesmen</h3><p>Fisioterapis melakukan penilaian kondisi dan kebutuhan pasien.</p></div>
+          <div class="step"><div class="step-num">03</div><h3>Program Terapi</h3><p>Terapi disesuaikan dengan hasil asesmen dan tujuan pelayanan.</p></div>
+          <div class="step"><div class="step-num">04</div><h3>Evaluasi</h3><p>Perkembangan dievaluasi untuk membantu menentukan langkah berikutnya.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="kontak">
+      <div class="container">
+        <div class="cta-panel">
+          <div><h2>Mari Mulai Langkah Menuju Gerak yang Lebih Baik.</h2><p>Hubungi Klinik Fisioterapi Yayasan Sinar Pelangi untuk informasi layanan, tarif, dan pendaftaran.</p></div>
+          <a class="btn wa-main" href="#">Hubungi Klinik via WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><img src="assets/logo-yayasan-sinar-pelangi.png" alt="Logo Yayasan Sinar Pelangi"><div><strong>KLINIK FISIOTERAPI</strong><br><span>YAYASAN SINAR PELANGI</span></div></div>
+          <p>Bergerak Lebih Baik, Hidup Lebih Bermakna.</p>
+        </div>
+        <div><h3>Informasi Klinik</h3><p>Alamat: [Isi alamat lengkap klinik]</p><p>Jam pelayanan: [Isi hari dan jam operasional]</p></div>
+        <div><h3>Hubungi Kami</h3><p>WhatsApp: [Isi nomor WhatsApp]</p><p>Email: [Isi alamat email, jika ada]</p><p>Jatibening, Bekasi</p></div>
+      </div>
+      <div class="copyright">© <span id="year"></span> Yayasan Sinar Pelangi. Seluruh hak cipta dilindungi.</div>
+    </div>
+  </footer>
+
+  <a class="wa-float wa-main" href="#" aria-label="Hubungi klinik melalui WhatsApp">WhatsApp Kami</a>
+
+  <script>
+    // PENTING: Ganti nomor di bawah dengan nomor WhatsApp klinik.
+    // Gunakan format internasional tanpa tanda +, spasi, atau angka 0 di depan.
+    // Contoh: 6281234567890
+    const WHATSAPP_NUMBER = "6285714105052";
+
+    function whatsappUrl(message) {
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+    }
+    document.querySelectorAll(".wa-main").forEach(link => {
+      link.href = whatsappUrl("Halo, saya ingin bertanya tentang layanan Klinik Fisioterapi Yayasan Sinar Pelangi.");
+      link.target = "_blank";
+      link.rel = "noopener";
+    });
+    document.querySelectorAll(".wa-link").forEach(link => {
+      const service = link.dataset.service || "layanan fisioterapi";
+      link.href = whatsappUrl("Halo, saya ingin bertanya mengenai layanan " + service + " di Klinik Fisioterapi Yayasan Sinar Pelangi.");
+      link.target = "_blank";
+      link.rel = "noopener";
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("menuBtn").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => document.getElementById("navLinks").classList.remove("open"));
+    });
+  </script>
+</body>
+</html>
